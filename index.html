@@ -1,0 +1,402 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,500;0,700;1,500;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+  :root {
+    --blush: #f6dbe8;
+    --lavender: #e3d1ea;
+    --lavender-dark: #cfa8dd;
+    --cream: #fdf8f5;
+    --charcoal: #2b2b2b;
+    --line-pink: #eab8d0;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    font-family: 'EB Garamond', Georgia, serif;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 0 40px;
+    background: var(--cream);
+    color: var(--charcoal);
+  }
+
+  .banner {
+    background: linear-gradient(135deg, var(--blush) 0%, #fbeef3 50%, var(--lavender) 100%);
+    padding: 36px 20px 28px;
+    text-align: center;
+    border-bottom: 3px solid var(--line-pink);
+  }
+
+  .logo-mark { font-size: 28px; margin-bottom: 4px; }
+
+  h1.brand {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 700;
+    font-size: 46px;
+    letter-spacing: 0.5px;
+    margin: 2px 0 10px;
+    color: #262626;
+  }
+
+  .divider {
+    width: 120px;
+    height: 2px;
+    background: var(--lavender-dark);
+    margin: 0 auto 14px;
+  }
+
+  .tagline {
+    font-family: 'EB Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 13px;
+    color: #555;
+  }
+
+  .content { padding: 24px 20px 0; }
+
+  h2.section-title {
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #7a4a63;
+    margin: 28px 0 10px;
+    text-align: center;
+  }
+
+  fieldset {
+    border: 1px solid var(--lavender);
+    background: #fffdfd;
+    border-radius: 10px;
+    margin-bottom: 14px;
+    padding: 14px 16px;
+  }
+
+  legend {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #a6567f;
+    padding: 0 8px;
+  }
+
+  label { font-size: 15px; }
+  label.checkbox-line { display: block; font-weight: normal; margin: 6px 0; font-family: 'EB Garamond', serif; font-size: 16px; }
+  label.checkbox-line input { accent-color: var(--lavender-dark); margin-right: 6px; }
+
+  input[type=text], input[type=email], select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 14px;
+    border: 1px solid #ddc7d3;
+    border-radius: 8px;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    background: #fffefe;
+    color: var(--charcoal);
+  }
+
+  input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--lavender-dark);
+    box-shadow: 0 0 0 2px rgba(207,168,221,0.3);
+  }
+
+  button {
+    width: 100%;
+    padding: 14px;
+    background: var(--lavender);
+    color: #333;
+    border: 1px solid var(--lavender-dark);
+    border-radius: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  button:hover:not(:disabled) { background: var(--lavender-dark); color: #fff; }
+  button:disabled { background: #e5e5e5; border-color: #ccc; color: #999; }
+
+  #message { text-align: center; margin-top: 14px; font-weight: 600; font-family: 'EB Garamond', serif; font-size: 16px; }
+  #message.error { color: #b23a5e; }
+  #message.success { color: #4a7a5d; }
+
+  label.checkbox-line .dur { color: #8a6f80; font-size: 14px; font-style: italic; white-space: nowrap; }
+
+  .summary {
+    position: sticky;
+    bottom: 0;
+    z-index: 2;
+    margin: 4px 0 0;
+    padding: 10px 12px;
+    border: 1px solid var(--lavender-dark);
+    border-radius: 10px;
+    background: #fffdfd;
+    color: #555;
+    font-size: 15px;
+    text-align: center;
+    box-shadow: 0 -2px 8px rgba(122,74,99,0.08);
+  }
+  .summary strong { color: #7a4a63; }
+
+  .hp-field {
+    position: absolute;
+    left: -9999px;
+    top: -9999px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .footer-note {
+    margin-top: 30px;
+    background: var(--lavender);
+    text-align: center;
+    padding: 14px 10px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #4a3348;
+  }
+</style>
+
+<div class="banner">
+  <div class="logo-mark">🌸</div>
+  <h1 class="brand">THE BEAUTY METHOD</h1>
+  <div class="divider"></div>
+  <div class="tagline">Beauty is the result. Care is the method.</div>
+</div>
+
+<div class="content">
+  <h2 class="section-title">Contact Info</h2>
+  <label>Full Name</label>
+  <input type="text" id="name" required>
+
+  <label>Phone Number</label>
+  <input type="text" id="phone" required>
+
+  <label>Email</label>
+  <input type="email" id="email" required>
+
+  <h2 class="section-title">Select Your Services</h2>
+  <div id="services-container"></div>
+  <div id="summary" class="summary" aria-live="polite">No services selected</div>
+
+  <h2 class="section-title">Appointment Date &amp; Time</h2>
+  <label>Appointment Date</label>
+  <select id="date"><option value="">Loading...</option></select>
+
+  <label>Appointment Time</label>
+  <select id="time"><option value="">Select services and a date first</option></select>
+
+  <h2 class="section-title">Notes</h2>
+  <label>Anything else we should know?</label>
+  <textarea id="notes" rows="3"></textarea>
+
+  <div class="hp-field" aria-hidden="true">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+  </div>
+
+  <button id="submitBtn" onclick="submitForm()">Book Appointment</button>
+  <div id="message"></div>
+
+  <div class="footer-note">Questions? book@beautymethodservices.com</div>
+</div>
+
+<script>
+  // ---------- BOOKING LOGIC ----------
+  const DEFAULT_BTN = 'Book Appointment';
+  let catalogById = {};
+  let timesRequestId = 0; // ignore stale responses when services/date change quickly
+
+  window.addEventListener('load', () => {
+    google.script.run.withSuccessHandler(renderServices).getServiceCatalog();
+    google.script.run.withSuccessHandler(populateDates).getValidDates();
+  });
+
+  function renderServices(catalog) {
+    const container = document.getElementById('services-container');
+    catalog.forEach(group => {
+      const fs = document.createElement('fieldset');
+      const legend = document.createElement('legend');
+      legend.textContent = group.section;
+      fs.appendChild(legend);
+      group.items.forEach(item => {
+        catalogById[item.id] = item;
+        const label = document.createElement('label');
+        label.className = 'checkbox-line';
+        const cb = document.createElement('input');
+        cb.type = 'checkbox';
+        cb.value = item.id;
+        cb.name = 'service';
+        cb.addEventListener('change', onServicesChanged);
+        label.appendChild(cb);
+        label.appendChild(document.createTextNode(' ' + item.label));
+        if (item.durationText) {
+          const dur = document.createElement('span');
+          dur.className = 'dur';
+          dur.textContent = ' · ' + item.durationText;
+          label.appendChild(dur);
+        }
+        fs.appendChild(label);
+      });
+      container.appendChild(fs);
+    });
+  }
+
+  function selectedServiceIds() {
+    return Array.from(document.querySelectorAll('input[name=service]:checked')).map(cb => cb.value);
+  }
+
+  function formatDuration(mins) {
+    const h = Math.floor(mins / 60), m = mins % 60;
+    if (!h) return m + ' min';
+    return h + ' hr' + (m ? ' ' + m + ' min' : '');
+  }
+
+  // Display only. The server recalculates the real duration on submit.
+  function updateSummary() {
+    const ids = selectedServiceIds();
+    const box = document.getElementById('summary');
+    if (ids.length === 0) { box.textContent = 'No services selected'; return; }
+    let mins = 0, price = 0, plus = false;
+    ids.forEach(id => {
+      const it = catalogById[id];
+      mins += it.minutes || 0;
+      price += parseFloat(it.price.replace(/[^0-9.]/g, '')) || 0;
+      if (it.price.indexOf('+') !== -1) plus = true;
+    });
+    mins = Math.max(mins, 30);
+    box.innerHTML = '';
+    box.append(ids.length + (ids.length === 1 ? ' service' : ' services') + ' · Est. time: ');
+    const t = document.createElement('strong'); t.textContent = formatDuration(mins); box.append(t);
+    box.append(' · ' + (plus ? 'Starting at ' : 'Total: '));
+    const p = document.createElement('strong'); p.textContent = '$' + price; box.append(p);
+  }
+
+  function onServicesChanged() {
+    updateSummary();
+    updateTimeOptions();
+  }
+
+  function populateDates(dates) {
+    const sel = document.getElementById('date');
+    sel.innerHTML = '<option value="">Select a date</option>';
+    dates.forEach(d => {
+      const opt = document.createElement('option');
+      opt.value = d;
+      opt.textContent = d;
+      sel.appendChild(opt);
+    });
+    sel.addEventListener('change', updateTimeOptions);
+  }
+
+  // Slots depend on BOTH the date and the total length of the selected services.
+  function updateTimeOptions() {
+    const date = document.getElementById('date').value;
+    const ids = selectedServiceIds();
+    const sel = document.getElementById('time');
+    const previous = sel.value;
+
+    if (ids.length === 0 || !date) {
+      sel.innerHTML = '<option value="">' + (ids.length === 0 ? 'Select services first' : 'Select a date first') + '</option>';
+      sel.disabled = false;
+      return;
+    }
+    sel.innerHTML = '<option value="">Loading...</option>';
+    sel.disabled = true;
+    const reqId = ++timesRequestId;
+
+    google.script.run
+      .withSuccessHandler(slots => {
+        if (reqId !== timesRequestId) return;
+        sel.innerHTML = '';
+        const open = slots.filter(s => !s.booked);
+        if (open.length === 0) {
+          sel.innerHTML = '<option value="">No times fit these services on this date</option>';
+        } else {
+          sel.appendChild(new Option('Select a time', ''));
+          slots.forEach(s => {
+            const opt = new Option(s.booked ? s.time + ' (unavailable)' : s.time, s.time);
+            opt.disabled = s.booked;
+            sel.appendChild(opt);
+          });
+          // Keep the client's pick if it still fits after changing services
+          if (open.some(s => s.time === previous)) sel.value = previous;
+        }
+        sel.disabled = false;
+      })
+      .withFailureHandler(() => {
+        if (reqId !== timesRequestId) return;
+        sel.innerHTML = '<option value="">Could not load times — try again</option>';
+        sel.disabled = false;
+      })
+      .getTimesForDate(date, ids);
+  }
+
+  function submitForm() {
+    const name = document.getElementById('name').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const date = document.getElementById('date').value;
+    const time = document.getElementById('time').value;
+    const notes = document.getElementById('notes').value.trim();
+    const services = selectedServiceIds();
+
+    const msg = document.getElementById('message');
+    msg.className = '';
+    msg.textContent = '';
+
+    if (services.length === 0) {
+      msg.className = 'error';
+      msg.textContent = 'Please select at least one service.';
+      return;
+    }
+    if (!name || !phone || !email || !date || !time) {
+      msg.className = 'error';
+      msg.textContent = 'Please fill in all required fields.';
+      return;
+    }
+
+    const btn = document.getElementById('submitBtn');
+    btn.disabled = true;
+    btn.textContent = 'Booking...';
+
+    google.script.run
+      .withSuccessHandler(res => {
+        btn.disabled = false;
+        btn.textContent = DEFAULT_BTN;
+        if (res.success) {
+          msg.className = 'success';
+          msg.textContent = 'Booked! ' + date + ', ' + time + (res.endTime ? ' – ' + res.endTime : '') + '. Check your email for confirmation.';
+          document.querySelectorAll('input, textarea, select').forEach(el => {
+            if (el.type === 'checkbox') el.checked = false; else if (el.tagName !== 'SELECT') el.value = '';
+          });
+          document.getElementById('date').value = '';
+          updateSummary();
+          updateTimeOptions();
+        } else if (res.reason === 'conflict') {
+          msg.className = 'error';
+          msg.textContent = res.message;
+          updateTimeOptions();
+        } else {
+          msg.className = 'error';
+          msg.textContent = res.message || 'Something went wrong. Please try again.';
+        }
+      })
+      .withFailureHandler(err => {
+        btn.disabled = false;
+        btn.textContent = DEFAULT_BTN;
+        msg.className = 'error';
+        msg.textContent = 'Error: ' + err.message;
+      })
+      .submitBooking({ name, phone, email, date, time, notes, services, website: document.getElementById('website').value });
+  }
+</script>
